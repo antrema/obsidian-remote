@@ -3,6 +3,9 @@ name: Docker
 on:
   workflow_dispatch:
   push:
+    # branches: [main]
+    # Publish semver tags as releases.
+    tags: ['v*.*.*']
     branches:
       - latest
       - main
@@ -49,4 +52,3 @@ jobs:
           platforms: linux/amd64
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-
